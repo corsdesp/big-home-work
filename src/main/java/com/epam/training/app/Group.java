@@ -1,0 +1,34 @@
+package com.epam.training.app;
+
+public enum Group {
+    NONE(1, 2),
+    MINOR(3, 4),
+    NORMAL(5, 7),
+    MAJOR(8, 13),
+    CRITICAL(14, Integer.MAX_VALUE);
+
+    private int min;
+    private int max;
+
+    Group(int min, int max) {
+        this.min = min;
+        this.max = max;
+    }
+
+    public static Group identifyGroup(int count) {
+        for (Group group : Group.values()) {
+            if (count <= group.getMax() && count >= group.getMin()) {
+                return group;
+            }
+        }
+        return null;
+    }
+
+    public int getMin() {
+        return min;
+    }
+
+    public int getMax() {
+        return max;
+    }
+}
