@@ -1,20 +1,23 @@
-package com.epam.training.app;
+package com.epam.training.app.printer;
+
+import com.epam.training.app.Field;
+import com.epam.training.app.FieldParam;
 
 import java.util.Map;
 
-public class Printer {
-    public static final int SEPARATOR_SIZE = 30;
+public class ReportBuilder {
+    private static final int SEPARATOR_SIZE = 30;
     private Field field;
     private FieldParam fieldParam;
     private Map<Enum, Integer> groups;
 
-    public Printer(Field field, FieldParam fieldParam, Map<Enum, Integer> groups) {
+    public ReportBuilder(Field field, FieldParam fieldParam, Map<Enum, Integer> groups) {
         this.field = field;
         this.fieldParam = fieldParam;
         this.groups = groups;
     }
 
-    public void print() {
+    public String build() {
         StringBuilder builder = new StringBuilder();
         builder.append(systemName());
         builder.append(separator(SEPARATOR_SIZE));
@@ -25,7 +28,7 @@ public class Printer {
         builder.append(groupTitle());
         builder.append(printGroups());
 
-        System.out.println(builder.toString());
+        return builder.toString();
     }
 
     private String separator(int size) {
