@@ -1,6 +1,7 @@
-package com.epam.training.app;
+package com.epam.training.app.field_data;
 
-import com.epam.training.app.status_enum.Status;
+import com.epam.training.app.Cell;
+import com.epam.training.app.enum_data.Status;
 
 public class Filler {
     public static void fill(Field field, double fill_factor) {

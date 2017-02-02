@@ -1,4 +1,4 @@
-package com.epam.training.app;
+package com.epam.training.app.enum_data;
 
 public enum Group {
     NONE(1, 2),

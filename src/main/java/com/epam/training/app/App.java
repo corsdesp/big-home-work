@@ -1,5 +1,9 @@
 package com.epam.training.app;
 
+import com.epam.training.app.enum_data.Group;
+import com.epam.training.app.field_data.Field;
+import com.epam.training.app.field_data.FieldParam;
+import com.epam.training.app.field_data.Filler;
 import com.epam.training.app.information_output.ConsolePrinter;
 import com.epam.training.app.information_output.Printer;
 import com.epam.training.app.information_output.ReportBuilder;

@@ -1,8 +1,8 @@
 package com.epam.training.app.information_output;
 
-import com.epam.training.app.Field;
-import com.epam.training.app.FieldParam;
-import com.epam.training.app.Group;
+import com.epam.training.app.field_data.Field;
+import com.epam.training.app.field_data.FieldParam;
+import com.epam.training.app.enum_data.Group;
 
 import java.util.Map;
 

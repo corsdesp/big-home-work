@@ -1,4 +1,6 @@
-package com.epam.training.app;
+package com.epam.training.app.field_data;
+
+import com.epam.training.app.Cell;
 
 public class Field implements Cloneable {
     private int length;
@@ -29,7 +31,7 @@ public class Field implements Cloneable {
     }
 
     @Override
-    protected Field clone() {
+    public Field clone() {
         try {
             return (Field) super.clone();
         } catch (CloneNotSupportedException e) {

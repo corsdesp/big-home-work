@@ -1,7 +1,7 @@
 package com.epam.training.app;
 
-import com.epam.training.app.status_enum.CheckPos;
-import com.epam.training.app.status_enum.Status;
+import com.epam.training.app.enum_data.CheckPos;
+import com.epam.training.app.enum_data.Status;
 
 public class Cell {
     private int posX;

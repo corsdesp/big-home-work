@@ -1,9 +1,9 @@
 package com.epam.training.app.neighboring_cells;
 
 import com.epam.training.app.Cell;
-import com.epam.training.app.Field;
-import com.epam.training.app.status_enum.CheckPos;
-import com.epam.training.app.status_enum.Status;
+import com.epam.training.app.field_data.Field;
+import com.epam.training.app.enum_data.CheckPos;
+import com.epam.training.app.enum_data.Status;
 
 public class LeftCell implements NeighboringCells {
     private static final int STEP = 1;

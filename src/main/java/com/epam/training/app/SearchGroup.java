@@ -1,8 +1,10 @@
 package com.epam.training.app;
 
+import com.epam.training.app.enum_data.Group;
+import com.epam.training.app.field_data.Field;
 import com.epam.training.app.neighboring_cells.*;
-import com.epam.training.app.status_enum.CheckPos;
-import com.epam.training.app.status_enum.Status;
+import com.epam.training.app.enum_data.CheckPos;
+import com.epam.training.app.enum_data.Status;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

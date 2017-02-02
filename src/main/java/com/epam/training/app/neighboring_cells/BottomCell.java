@@ -1,9 +1,9 @@
 package com.epam.training.app.neighboring_cells;
 
 import com.epam.training.app.Cell;
-import com.epam.training.app.Field;
-import com.epam.training.app.status_enum.CheckPos;
-import com.epam.training.app.status_enum.Status;
+import com.epam.training.app.field_data.Field;
+import com.epam.training.app.enum_data.CheckPos;
+import com.epam.training.app.enum_data.Status;
 
 public class BottomCell implements NeighboringCells {
     private static final int STEP = 1;
@@ -18,7 +18,7 @@ public class BottomCell implements NeighboringCells {
         int x = cell.getPosX();
         int y = cell.getPosY();
 
-        if (y - 1 >= 0) {
+        if (y - STEP >= 0) {
             Cell cellBottom = field.getCell(x, y - STEP);
             if (checkStatus(cellBottom)) {
                 positiveChecked(cellBottom, x, y - STEP);

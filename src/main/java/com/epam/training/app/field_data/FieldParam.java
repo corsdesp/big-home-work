@@ -1,4 +1,4 @@
-package com.epam.training.app;
+package com.epam.training.app.field_data;
 
 public class FieldParam {
     private int length;

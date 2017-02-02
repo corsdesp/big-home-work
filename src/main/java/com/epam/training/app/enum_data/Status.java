@@ -1,4 +1,4 @@
-package com.epam.training.app.status_enum;
+package com.epam.training.app.enum_data;
 
 public enum Status {
     BUSY,

@@ -1,5 +1,6 @@
 package com.epam.training.app;
 
+import com.epam.training.app.field_data.FieldParam;
 import org.apache.commons.cli.*;
 
 public class ConsoleCli {
