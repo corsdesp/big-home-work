@@ -5,7 +5,7 @@ public enum Group {
     MINOR(3, 4),
     NORMAL(5, 7),
     MAJOR(8, 13),
-    CRITICAL(14, Integer.MAX_VALUE);
+    CRITICAL(14, 100);
 
     private int min;
     private int max;

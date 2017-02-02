@@ -1,8 +1,8 @@
 package com.epam.training.app;
 
-import com.epam.training.app.printer.ConsolePrinter;
-import com.epam.training.app.printer.Printer;
-import com.epam.training.app.printer.ReportBuilder;
+import com.epam.training.app.information_output.ConsolePrinter;
+import com.epam.training.app.information_output.Printer;
+import com.epam.training.app.information_output.ReportBuilder;
 
 import java.util.Map;
 
@@ -11,11 +11,11 @@ public class App {
         ConsoleCli consoleCli = new ConsoleCli(args);
         FieldParam parameters = consoleCli.parse();
 
-        Field field = new Field(parameters.getLength(), parameters.getWidth());
+        Field field = new Field(parameters);
         Filler.fill(field, parameters.getFill_factor());
 
         SearchGroup searchGroup = new SearchGroup(field);
-        Map<Enum, Integer> groups = searchGroup.search();
+        Map<Group, Integer> groups = searchGroup.search();
 
         ReportBuilder reportBuilder = new ReportBuilder(field, parameters, groups);
         String report = reportBuilder.build();

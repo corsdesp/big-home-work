@@ -1,12 +1,17 @@
 package com.epam.training.app;
 
+import com.epam.training.app.status_enum.CheckPos;
+import com.epam.training.app.status_enum.Status;
+
 public class Cell {
     private int posX;
     private int posY;
-    private boolean busy;
-    private boolean checked;
+    private CheckPos checked;
+    private Status status;
 
     public Cell() {
+        status = Status.FREE;
+        checked = CheckPos.NO;
     }
 
     public int getPosX() {
@@ -25,26 +30,25 @@ public class Cell {
         this.posY = posY;
     }
 
-    public boolean isBusy() {
-        return busy;
+    public Status getStatus() {
+        return status;
     }
 
-    public void setBusy(boolean busy) {
-        this.busy = busy;
-
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
-    public boolean isChecked() {
+    public CheckPos getChecked() {
         return checked;
     }
 
-    public void setChecked(boolean checked) {
+    public void setChecked(CheckPos checked) {
         this.checked = checked;
     }
 
     @Override
     public String toString() {
-        if (busy) {
+        if (status == Status.BUSY) {
             return "|X|";
         } else {
             return " - ";

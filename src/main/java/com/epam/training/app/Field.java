@@ -1,14 +1,15 @@
 package com.epam.training.app;
 
-public class Field {
+public class Field implements Cloneable {
     private int length;
     private int width;
     private Cell[][] matrix;
 
-    public Field(int length, int width) {
-        this.length = length;
-        this.width = width;
+    public Field(FieldParam param) {
+        length = param.getLength();
+        width = param.getWidth();
         matrix = new Cell[length][width];
+
     }
 
     public int getLength() {
@@ -25,5 +26,15 @@ public class Field {
 
     public Cell getCell(int length, int width) {
         return matrix[length][width];
+    }
+
+    @Override
+    protected Field clone() {
+        try {
+            return (Field) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -1,4 +1,4 @@
-package com.epam.training.app.printer;
+package com.epam.training.app.information_output;
 
 public interface Printer {
     void print(String str);

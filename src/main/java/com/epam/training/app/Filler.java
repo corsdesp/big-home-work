@@ -1,5 +1,7 @@
 package com.epam.training.app;
 
+import com.epam.training.app.status_enum.Status;
+
 public class Filler {
     public static void fill(Field field, double fill_factor) {
         for (int lengthField = 0; lengthField < field.getLength(); lengthField++) {
@@ -15,8 +17,8 @@ public class Filler {
             int randomWidth = (int) (Math.random() * field.getWidth());
 
             Cell cell = field.getCell(randomLength, randomWidth);
-            while (!cell.isBusy()) {
-                cell.setBusy(true);
+            if (cell.getStatus() == Status.FREE) {
+                cell.setStatus(Status.BUSY);
                 cell.setPosX(randomLength);
                 cell.setPosY(randomWidth);
                 i++;
