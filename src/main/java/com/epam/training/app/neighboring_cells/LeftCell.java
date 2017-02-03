@@ -6,7 +6,6 @@ import com.epam.training.app.enum_data.CheckPos;
 import com.epam.training.app.enum_data.Status;
 
 public class LeftCell implements NeighboringCells {
-    private static final int STEP = 1;
     private Field field;
 
     public LeftCell(Field field) {
@@ -27,7 +26,6 @@ public class LeftCell implements NeighboringCells {
         }
         return null;
     }
-
 
     private void positiveChecked(Cell cell, int length, int width) {
         cell.setChecked(CheckPos.YES);
