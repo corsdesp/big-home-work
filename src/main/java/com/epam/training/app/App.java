@@ -1,30 +1,26 @@
 package com.epam.training.app;
 
-import com.epam.training.app.enum_data.Group;
-import com.epam.training.app.field_data.Field;
-import com.epam.training.app.field_data.FieldParam;
-import com.epam.training.app.field_data.Filler;
-import com.epam.training.app.information_output.ConsolePrinter;
-import com.epam.training.app.information_output.Printer;
-import com.epam.training.app.information_output.ReportBuilder;
-
-import java.util.Map;
+import com.epam.training.app.model.Sector;
+import org.apache.commons.cli.ParseException;
 
 public class App {
     public static void main(String[] args) {
-        ConsoleCli consoleCli = new ConsoleCli(args);
-        FieldParam parameters = consoleCli.parse();
+        Parser parser = new Parser();
 
-        Field field = new Field(parameters);
-        Filler.fill(field, parameters.getFill_factor());
+        InputParam inputParam = null;
+        try {
+            inputParam = parser.parse(args);
+        } catch (ParseException e) {
+            parser.help();
+        }
 
-        SearchGroup searchGroup = new SearchGroup(field);
-        Map<Group, Integer> groups = searchGroup.search();
+        Sector sector = new Sector(inputParam.getLength(), inputParam.getWidth());
 
-        ReportBuilder reportBuilder = new ReportBuilder(field, parameters, groups);
-        String report = reportBuilder.build();
+        new Filler().fill(sector, inputParam.getFillFactor());
 
-        Printer printer = new ConsolePrinter();
-        printer.print(report);
+        GroupSeeker groupSeeker = new GroupSeeker(sector);
+
+        ReportMaker reportMaker = new ReportMaker(sector, inputParam, groupSeeker.seekGroups());
+        System.out.println(reportMaker.make());
     }
 }

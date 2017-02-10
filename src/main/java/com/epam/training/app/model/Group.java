@@ -1,4 +1,4 @@
-package com.epam.training.app.enum_data;
+package com.epam.training.app.model;
 
 public enum Group {
     NONE(1, 2),
@@ -21,7 +21,7 @@ public enum Group {
                 return group;
             }
         }
-        return null;
+        return CRITICAL;
     }
 
     public int getMin() {

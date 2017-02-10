@@ -1,24 +1,24 @@
-package com.epam.training.app.information_output;
+package com.epam.training.app;
 
-import com.epam.training.app.field_data.Field;
-import com.epam.training.app.field_data.FieldParam;
-import com.epam.training.app.enum_data.Group;
+import com.epam.training.app.model.CellStatus;
+import com.epam.training.app.model.Group;
+import com.epam.training.app.model.Sector;
 
 import java.util.Map;
 
-public class ReportBuilder {
+public class ReportMaker {
     private static final int SEPARATOR_SIZE = 30;
-    private Field field;
-    private FieldParam fieldParam;
+    private Sector sector;
+    private InputParam fieldParam;
     private Map<Group, Integer> groups;
 
-    public ReportBuilder(Field field, FieldParam fieldParam, Map<Group, Integer> groups) {
-        this.field = field;
+    public ReportMaker(Sector sector, InputParam fieldParam, Map<Group, Integer> groups) {
+        this.sector = sector;
         this.fieldParam = fieldParam;
         this.groups = groups;
     }
 
-    public String build() {
+    public String make() {
         StringBuilder builder = new StringBuilder();
         builder.append(systemName());
         builder.append(separator(SEPARATOR_SIZE));
@@ -42,14 +42,18 @@ public class ReportBuilder {
     }
 
     private String field() {
-        StringBuilder builder = new StringBuilder();
-        for (int length = 0; length < field.getLength(); length++) {
-            for (int width = 0; width < field.getWidth(); width++) {
-                builder.append(field.getCell(length, width));
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int length = 0; length < sector.getLength(); length++) {
+            for (int width = 0; width < sector.getWidth(); width++) {
+                if (sector.getCell(length, width).getStatus() == CellStatus.HUMAN) {
+                    stringBuilder.append("|X|");
+                } else {
+                    stringBuilder.append(" - ");
+                }
             }
-            builder.append("\n");
+            stringBuilder.append("\n");
         }
-        return builder.toString();
+        return stringBuilder.toString();
     }
 
     private String groups() {
@@ -65,9 +69,9 @@ public class ReportBuilder {
 
     private String param() {
         StringBuilder builder = new StringBuilder();
-        builder.append("Length field: ").append(fieldParam.getLength()).append("\n");
-        builder.append("Width field: ").append(fieldParam.getWidth()).append("\n");
-        builder.append("Fill factor: ").append(fieldParam.getFill_factor()).append("\n");
+        builder.append("Length sector: ").append(fieldParam.getLength()).append("\n");
+        builder.append("Width sector: ").append(fieldParam.getWidth()).append("\n");
+        builder.append("Fill factor: ").append(fieldParam.getFillFactor()).append("\n");
         return builder.toString();
     }
 
